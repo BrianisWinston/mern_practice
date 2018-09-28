@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jsonwebtoken = require('jsonwebtoken');
-const User = require('../../models/User.js');
+const User = require('../../models/User');
+const keys = require('../../config/keys')
 
 router.get('/test', (req, res) => res.send('In users page.'));
 
@@ -43,9 +44,20 @@ router.post('/login', (req, res) => {
       bcrypt.compare(password, user.password)
         .then(isMatch => {
           if (isMatch) {
-            res.json({ msg: "Success"});
+            const payload = { id: user.id, name: user.name };
+
+            jsonwebtoken.sign(
+              payload,
+              keys.secretOrKey,
+              { expiresin: 3600 },
+              ( err, token ) => {
+                res.json({
+                  success: true,
+                  token: 'Bearer ' + token
+                });
+              });
           } else {
-            return res.status(400).json({ password: 'Wrong password'})
+            return res.status(400).json({ password: 'Wrong password'});
           };
         });
     });
