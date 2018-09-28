@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.router();
+const router = express.Router();
 
 router.get('/users', (req, res) => res.send('In users page.'));
 
