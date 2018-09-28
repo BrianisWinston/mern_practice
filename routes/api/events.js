@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/events', (req, res) => res.send('in events page'))
+router.get('/test', (req, res) => res.json('in events page'))
 
 module.exports = router;

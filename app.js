@@ -5,7 +5,7 @@ const db = require('./config/keys').mongoURI;
 
 // Import routes.
 const users = require('./routes/api/users');
-const events = require('./routes/api/users')
+const events = require('./routes/api/events')
 
 
 // Connect project to MongoDB.
@@ -14,8 +14,11 @@ mongoose
   .then(() => console.log('mongo connected successfully'))
   .catch( err => console.log(err));
 
+// ROUTES -------------------------------------------------------------
 // Home route.
 app.get("/", (req, asd) => asd.send('whas good lil mama lemme whisper in yo ear'));
+app.use("/api/users", users);
+app.use("/api/events", events);
 
 const port = process.env.PORT || 3000;
 
