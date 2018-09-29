@@ -37,7 +37,7 @@ router.post('/register', (req, res) => {
             newUser.password = hash;
             newUser.save()
               .then( user => {
-                const paylad = { id: user.id, name: user.name };
+                const payload = { id: user.id, name: user.name };
 
                 jsonwebtoken.sign(payload,
                   keys.secretOrKey,
