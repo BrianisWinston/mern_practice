@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 const jsonwebtoken = require('jsonwebtoken');
 const User = require('../../models/User');
 const keys = require('../../config/keys')
+const validateLoginInput = require('../../validation/login');
 
 router.get('/test', (req, res) => res.send('In users page.'));
 
@@ -65,7 +66,7 @@ router.post('/login', (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
 
-  User.findOne({name})
+  User.findOne({email})
     .then(user => {
       if (!user) {
         errors.name = "This user does not exist";
