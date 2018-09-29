@@ -4,8 +4,9 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jsonwebtoken = require('jsonwebtoken');
 const User = require('../../models/User');
-const keys = require('../../config/keys')
+const keys = require('../../config/keys');
 const validateLoginInput = require('../../validation/login');
+const validateRegisterInput = require('../../validation/register');
 
 router.get('/test', (req, res) => res.send('In users page.'));
 
