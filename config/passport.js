@@ -5,5 +5,11 @@ const User = mongoose.model('users');
 const keys = require('../config/keys');
 
 const options = {};
-options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearenToken();
+options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 options.secretOrKey = keys.secretOrKey;
+
+module.exports = passport => {
+  passport.use(new JwtStrategy(options, (payload, done) => {
+    console.log(payload);
+  }));
+};

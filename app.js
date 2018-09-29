@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 const passport = require('passport');
-require('./config/passport');
+require('./config/passport')(passport);
 
 // Import body parser to parse JSON sent to frontend.
 const bodyParser = require('body-parser');

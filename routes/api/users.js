@@ -1,4 +1,5 @@
 const express = require('express');
+const passport = require('passport');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jsonwebtoken = require('jsonwebtoken');
@@ -7,6 +8,8 @@ const keys = require('../../config/keys')
 
 router.get('/test', (req, res) => res.send('In users page.'));
 
+
+// Create new user
 router.post('/register', (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
 
@@ -51,6 +54,7 @@ router.post('/register', (req, res) => {
     });
 });
 
+// Login new user
 router.post('/login', (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
 
@@ -90,5 +94,11 @@ router.post('/login', (req, res) => {
         });
     });
 });
+
+// Create private route for logged in users
+router.get('/current', passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    res.json({ msg: 'Success' });
+  })
 
 module.exports = router;
