@@ -9,7 +9,7 @@ options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 options.secretOrKey = keys.secretOrKey;
 
 module.exports = passport => {
-  passport.use(new JwtStrategy(options, (payload, done) => {
+  passport.use(new JwtStrategy(options, (jwt_payload, done) => {
     User.findById(jwt_payload.id)
       .then( user => {
         if (user) {

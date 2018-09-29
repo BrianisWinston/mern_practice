@@ -79,12 +79,12 @@ router.post('/login', (req, res) => {
           if (isMatch) {
             const payload = { id: user.id, name: user.name };
 
-  jsonwebtoken.sign( payload, keys.secretOrKey, { expiresIn: 3600 }, ( err, token ) => {
-    res.json({
-      success: true,
-      token: 'Bearer ' + token
-    });
-  });
+            jsonwebtoken.sign( payload, keys.secretOrKey, { expiresIn: 3600 }, ( err, token ) => {
+              res.json({
+                success: true,
+                token: 'Bearer ' + token
+              });
+            });
           } else {
             errors.password = "Incorrect password";
             return res.status(400).json(errors);
