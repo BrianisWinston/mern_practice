@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
+const passport = require('passport');
+require('./config/passport');
 
 // Import body parser to parse JSON sent to frontend.
 const bodyParser = require('body-parser');
@@ -21,6 +23,7 @@ mongoose
 // ROUTES -------------------------------------------------------------
 // Home route.
 app.get("/", (req, asd) => asd.send('whas good lil mama lemme whisper in yo ear'));
+app.use(passport.initialize());
 app.use("/api/users", users);
 app.use("/api/events", events);
 
