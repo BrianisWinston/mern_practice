@@ -27,7 +27,7 @@ app.get("/", (req, asd) => asd.send('whas good lil mama lemme whisper in yo ear'
 app.use("/api/users", users);
 app.use("/api/events", events);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`aye we lit on ${port} fam`));
 console.log(port);
