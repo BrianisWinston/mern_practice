@@ -19,7 +19,10 @@ class Greeting extends React.Component {
     return (
       <div>
           <h1>In greeting component!</h1>
+          <h4>Users</h4>
           {this.state.people.map(person => <li>{person.name}</li>)}
+          <h4>Events</h4>
+
       </div>
     )
   };
