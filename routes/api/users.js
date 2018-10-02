@@ -10,6 +10,15 @@ const validateRegisterInput = require('../../validation/register');
 
 router.get('/test', (req, res) => res.send('In users page.'));
 
+// Grab all users
+router.get('/', (req, res) => {
+  User.getUsers()
+    .then(users => {
+      users.map( user => {
+        res.json(user);
+      })
+    })
+})
 
 // Create new user
 router.post('/register', (req, res) => {

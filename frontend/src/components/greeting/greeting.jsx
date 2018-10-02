@@ -2,6 +2,10 @@ import React from 'react';
 
 
 class Greeting extends React.Component {
+
+  componentDidMount() {
+
+  }
   render() {
     return (
       <div>

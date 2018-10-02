@@ -23,7 +23,7 @@ mongoose
 
 // ROUTES -------------------------------------------------------------
 // Home route.
-app.get("/", (req, asd) => asd.send('whas good lil mama lemme whisper in yo ear'));
+app.get("/", (req, asd) => asd.send('root route'));
 app.use("/api/users", users);
 app.use("/api/events", events);
 
