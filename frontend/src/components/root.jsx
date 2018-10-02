@@ -1,13 +1,16 @@
 import React from 'react';
+import {
+  Route,
+  Redirect,
+  Switch,
+  Link,
+  HashRouter
+} from 'react-router-dom';
 
-class Rooter extends React.Component {
-  render() {
-    return(
-      <div>
-        <h1>hello!</h1>
-      </div>
-    )
-  }
-}
 
-export default Rooter;
+const Root = () => (
+  <div>
+  </div>
+);
+
+export default Root;
