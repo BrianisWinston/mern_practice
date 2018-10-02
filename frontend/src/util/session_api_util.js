@@ -4,12 +4,13 @@ import jwt_decode from 'jwt-decode';
 export const GET_ERRORS = 'GET_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 
 export const setAuthToken = token => {
   if (token) {
     axios.defaults.headers.common['Authorization'] = token;
   } else {
-    delete acios.defaults.headers.common['Authorization'];
+    delete axios.defaults.headers.common['Authorization'];
   }
 };
 
@@ -45,4 +46,12 @@ export const logoutUser = () => dispatch => {
   setAuthToken(false);
   // Set current user to {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
+};
+
+// Set logged in user
+export const setCurrentUser = decoded => {
+  return {
+    type: SET_CURRENT_USER,
+    payload: decoded
+  };
 };
