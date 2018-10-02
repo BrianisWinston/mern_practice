@@ -12,12 +12,13 @@ router.get('/test', (req, res) => res.send('In users page.'));
 
 // Grab all users
 router.get('/', (req, res) => {
-  User.getUsers()
-    .then(users => {
-      users.map( user => {
-        res.json(user);
-      })
-    })
+  User.find({}, ((err, users) => {
+    if (err) {
+      res.send('Something went wrong');
+      next();
+    }
+    res.json(users);
+  }))
 })
 
 // Create new user
