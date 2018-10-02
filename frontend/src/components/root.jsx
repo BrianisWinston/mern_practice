@@ -6,10 +6,12 @@ import {
   Link,
   HashRouter
 } from 'react-router-dom';
+import GreetingContainer from './greeting/greeting';
 
 
 const Root = () => (
   <div>
+    <Route path="/" component={GreetingContainer}/>
   </div>
 );
 
