@@ -4,7 +4,7 @@ class Rooter extends React.Component {
   render() {
     return(
       <div>
-        hello!
+        <h1>hello!</h1>
       </div>
     )
   }

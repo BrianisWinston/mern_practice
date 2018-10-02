@@ -5,7 +5,7 @@ import jwt_decode from 'jwt-decode';
 import * as APIUtil from './util/session_api_util';
 // Components
 import configureStore from './store/store';
-import App from './App';
+import { App } from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,6 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href= 'login';
     }
   }
-  ReactDOM.render(<App />, document.getElementById('root'));
+  ReactDOM.render(<App store={store}/>, document.getElementById('root'));
   registerServiceWorker();
 })

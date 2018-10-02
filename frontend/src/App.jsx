@@ -5,12 +5,12 @@ import Root from './components/root';
 import logo from './logo.svg';
 import './App.css';
 
-const App = ({ store }) => {
+export const App = ({ store }) => (
   <Provider store={store}>
     <HashRouter>
-      <Root/>
+      <Root />
     </HashRouter>
   </Provider>
-};
+);
 
 export default App;
