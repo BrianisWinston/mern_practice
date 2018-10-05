@@ -27,7 +27,7 @@ app.get("/", (req, asd) => asd.send('root route'));
 app.use("/api/users", users);
 app.use("/api/events", events);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 
 app.listen(port, () => console.log(`aye we lit on ${port} fam`));
 console.log(port);
